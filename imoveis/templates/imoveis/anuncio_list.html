@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head_title %}Anúncios | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Anúncios <small><a href='{% url "imoveis:create" %}'>Criar</a></small></h1>
+
+<ul>
+{% for obj in object_list %}
+    <li><a href='{{ obj.get_absolute_url }}'>{{ obj }}</a><br/>
+Cidade: {{ obj.cidade }}/
+Transação: {{ obj.transacao }}/
+Tipo: {{ obj.tipo }}/
+Quartos: {{ obj.quartos }}/
+Banheiros: {{ obj.banheiros }}/
+Vagas: {{ obj.vagas }}/
+Slug: {{ obj.slug }}</li>
+{% empty %}
+
+{% endfor %}
+</ul>
+
+</div>
+
+</div>
+{% endblock %}

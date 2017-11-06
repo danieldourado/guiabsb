@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ form.instance.title }} | Imóveis | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+
+<h1>{{ form.instance.title }} <small> {{ form.instance.tipo }}</small></h1>
+<p>Cidade: {{ form.instance.cidade }}</p>
+<p>Transação: {{ form.instance.transacao }}</p>
+<p>Tipo: {{ form.instance.tipo }}</p>
+<p>Quartos: {{ form.instance.quartos }}</p>
+<p>Banheiros: {{ form.instance.banheiros }}</p>
+<p>Vagas: {{ form.instance.vagas }}</p>
+<p>Slug: {{ form.instance.slug }}</p>
+
+<hr/>
+<h3>Faça alterações</h3>
+{% include 'snippets/form-snippet.html' with form=form %}
+
+
+</div>
+</div>
+{% endblock %}
